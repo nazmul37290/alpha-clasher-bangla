@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alphabet Clash</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <div class="bg-gradient-to-b from-green-300 to-green-800 min-h-screen">
+        <!-- _____________________home page section_________________ -->
+        <section
+          id="home-page"
+          class="flex flex-col justify-center items-center min-h-screen gap-5"
+        >
+          <h1 class="text-4xl lg:text-8xl text-white font-bold">বর্ণমালা</h1>
+          <p class="text-white font-medium text-2xl">Lets play with letters</p>
+          <button
+            onclick="play()"
+            class="btn bg-white text-xl text-green-400 font-bold"
+          >
+            শুরু করুন
+          </button>
+        </section>
+        <!-- ___________________playground page section_____________ -->
+
+        <section id="playground" class="space-y-5 hidden">
+          <div class="flex justify-center pt-5">
+            <div
+              class="artboard artboard-horizontal phone-6 rounded-md bg-[#ffffffb3] border-[20px] border-green-950"
+            >
+              <p
+                class="text-white bg-green-900 mx-auto text-center w-fit p-2 rounded-b-xl"
+              >
+                টাইপিং এর সময় কীবোর্ড দেখব না...
+              </p>
+              <p id="display" class="font-extrabold text-8xl text-center pt-10">
+                Y
+              </p>
+            </div>
+          </div>
+          <div class="text-green-800">
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="q" class="kbd ঙ smallLetter">q</kbd>
+              <kbd id="Q" class="kbd ং hidden capitalLetter">Q</kbd>
+              <kbd id="w" class="kbd য smallLetter">w</kbd>
+              <kbd id="W" class="kbd য় hidden capitalLetter">W</kbd>
+              <kbd id="e" class="kbd ড smallLetter">e</kbd>
+              <kbd id="E" class="kbd ঢ hidden capitalLetter">E</kbd>
+              <kbd id="r" class="kbd প smallLetter">r</kbd>
+              <kbd id="R" class="kbd ফ hidden capitalLetter">R</kbd>
+              <kbd id="t" class="kbd ট smallLetter">t</kbd>
+              <kbd id="T" class="kbd ঠ hidden capitalLetter">T</kbd>
+              <kbd id="y" class="kbd চ smallLetter">y</kbd>
+              <kbd id="Y" class="kbd ছ hidden capitalLetter">Y</kbd>
+              <kbd id="u" class="kbd জ smallLetter">u</kbd>
+              <kbd id="U" class="kbd ঝ hidden capitalLetter">U</kbd>
+              <kbd id="i" class="kbd হ smallLetter">i</kbd>
+              <kbd id="I" class="kbd ঞ hidden capitalLetter">I</kbd>
+              <kbd id="o" class="kbd গ smallLetter">o</kbd>
+              <kbd id="O" class="kbd ঘ hidden capitalLetter">O</kbd>
+              <kbd id="p" class="kbd ড় smallLetter">p</kbd>
+              <kbd id="P" class="kbd ঢ় hidden capitalLetter">P</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="a" class="kbd ঋ smallLetter">a</kbd>
+              <kbd id="A" class="kbd capitalLetter">A</kbd>
+              <kbd id="s" class="kbd উ smallLetter">s</kbd>
+              <kbd id="S" class="kbd capitalLetter ঊ">S</kbd>
+              <kbd id="d" class="kbd ই smallLetter">d</kbd>
+              <kbd id="D" class="kbd capitalLetter ঈ">D</kbd>
+              <kbd id="f" class="kbd আ smallLetter">f</kbd>
+              <kbd id="F" class="kbd capitalLetter অ">F</kbd>
+              <kbd id="g" class="kbd smallLetter">g</kbd>
+              <kbd id="G" class="kbd capitalLetter">G</kbd>
+              <kbd id="h" class="kbd ব smallLetter">h</kbd>
+              <kbd id="H" class="kbd capitalLetter ভ">H</kbd>
+              <kbd id="j" class="kbd ক smallLetter">j</kbd>
+              <kbd id="J" class="kbd capitalLetter খ">J</kbd>
+              <kbd id="k" class="kbd ত smallLetter">k</kbd>
+              <kbd id="K" class="kbd capitalLetter থ">K</kbd>
+              <kbd id="l" class="kbd দ smallLetter">l</kbd>
+              <kbd id="L" class="kbd capitalLetter ধ">L</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="z" class="kbd smallLetter">z</kbd>
+              <kbd id="Z" class="kbd capitalLetter">Z</kbd>
+              <kbd id="x" class="kbd ও ঔ smallLetter">x</kbd>
+              <kbd id="X" class="kbd capitalLetter ও ঔ">X</kbd>
+              <kbd id="c" class="kbd এ ঐ smallLetter">c</kbd>
+              <kbd id="C" class="kbd capitalLetter এ ঐ">C</kbd>
+              <kbd id="v" class="kbd র ল smallLetter">v</kbd>
+              <kbd id="V" class="kbd capitalLetter র ল">V</kbd>
+              <kbd id="b" class="kbd ন ণ smallLetter">b</kbd>
+              <kbd id="B" class="kbd capitalLetter ন ণ">B</kbd>
+              <kbd id="n" class="kbd স ষ smallLetter">n</kbd>
+              <kbd id="N" class="kbd capitalLetter স ষ">N</kbd>
+              <kbd id="m" class="kbd শ ম smallLetter">m</kbd>
+              <kbd id="M" class="kbd capitalLetter শ ম">M</kbd>
+              <kbd id="Shift" class="kbd shift">Shift</kbd>
+            </div>
+          </div>
+          <audio id="audio" class="hidden" controls src="wrong.mp3"></audio>
+          <div class="flex justify-around">
+            <button class="btn text-green-800 font-bold">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="green"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+              Life
+              <span id="life">10</span>
+            </button>
+            <button class="btn text-green-800 font-bold">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="green"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+              Score
+              <span id="score">0</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ___________________final score card_____________________ -->
+
+        <section
+          id="finalScoreCard"
+          class="flex min-h-screen hidden items-center justify-center"
+        >
+          <div
+            class="card w-96 items-center bg-gradient-to-r from-green-700 to-green-500 text-primary-content"
+          >
+            <div class="card-body text-white space-y-4">
+              <h2 class="card-title text-4xl font-medium">Game Over!!</h2>
+              <p class="text-5xl font-bold text-center">
+                Score: <span id="finalScore">0</span>
+              </p>
+
+              <div class="card-actions justify-center">
+                <button onclick="play()" class="btn text-xl text-green-800">
+                  Play Again
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
